@@ -13,23 +13,21 @@ using namespace std;
 
 
 bool StopWatch::Start() {
-	if (beginTime == 0) {//if the begin time is 0 then the timer has not started yet
+
 		beginTime = clock();
 		return true;
-	}
-	return false;
 }
 
 bool StopWatch::Stop() {
-		endTime = clock();
-		return true;
+	endTime = clock();
+	return true;
 }
 
 void StopWatch::DisplayTimerInfo() {
 	elapsedTime = endTime - beginTime; //finds the elapsed time
 	double milliseconds = elapsedTime / (CLOCKS_PER_SEC / 1000); //calculates milliseconds
 
-	// display real-time summary
+																 // display real-time summary
 	cout << "Time Elapsed : " << milliseconds << " milliseconds" << endl;
 
 }
@@ -46,9 +44,30 @@ void sort::sortFile500() {
 	cout << "(500 elements)" << endl;
 
 	sort sort;
-	ifstream numberFile("C:\\Programming\\C++ II\\P02\\500.txt", ios::in);
-	int listSize = 500;
+	ifstream numberFile("C:\\Ball\\P02\\500.txt", ios::in);
+	int listSize = 0;
+	int holder = 0;
 	int* list = NULL;
+	int* copy = NULL;
+
+	if (numberFile.is_open()) //if the file is open
+	{
+		while (!numberFile.eof()) {
+			numberFile >> holder;
+			listSize++;
+		}
+
+		list = new int[listSize];
+		copy = new int[listSize];
+
+		for (int i = 0; i < listSize; i++) {
+			int x = 0;
+
+			numberFile >> x;
+			list[i] = x;
+		}
+	}
+	sort.bubbleSort(list, listSize);
 
 	if (numberFile.is_open()) //if the file is open
 	{
@@ -61,8 +80,21 @@ void sort::sortFile500() {
 			list[i] = x;
 		}
 	}
-	sort.bubbleSort(list, listSize);
+
 	sort.selectionSort(list, listSize);
+
+	if (numberFile.is_open()) //if the file is open
+	{
+		list = new int[listSize];
+
+		for (int i = 0; i < listSize; i++) {
+			int x = 0;
+
+			numberFile >> x;
+			list[i] = x;
+		}
+	}
+
 	sort.insertionSort(list, listSize);
 
 	numberFile.close();
@@ -73,9 +105,28 @@ void sort::sortFile5k() {
 	cout << "(5k elements)" << endl;
 
 	sort sort;
-	ifstream numberFile("C:\\Programming\\C++ II\\P02\\5k.txt", ios::in);
-	int listSize = 5000;
+	ifstream numberFile("C:\\Ball\\P02\\5k.txt", ios::in);
+	int listSize = 0;
+	int holder = 0;
 	int* list = NULL;
+
+	if (numberFile.is_open()) //if the file is open
+	{
+		while (!numberFile.eof()) {
+			numberFile >> holder;
+			listSize++;
+		}
+
+		list = new int[listSize];
+
+		for (int i = 0; i < listSize; i++) {
+			int x = 0;
+
+			numberFile >> x;
+			list[i] = x;
+		}
+	}
+	sort.bubbleSort(list, listSize);
 
 	if (numberFile.is_open()) //if the file is open
 	{
@@ -88,8 +139,21 @@ void sort::sortFile5k() {
 			list[i] = x;
 		}
 	}
-	sort.bubbleSort(list, listSize);
+
 	sort.selectionSort(list, listSize);
+
+	if (numberFile.is_open()) //if the file is open
+	{
+		list = new int[listSize];
+
+		for (int i = 0; i < listSize; i++) {
+			int x = 0;
+
+			numberFile >> x;
+			list[i] = x;
+		}
+	}
+
 	sort.insertionSort(list, listSize);
 
 	numberFile.close();
@@ -100,9 +164,28 @@ void sort::sortFile25k() {
 	cout << "(25k elements)" << endl;
 
 	sort sort;
-	ifstream numberFile("C:\\Programming\\C++ II\\P02\\25k.txt", ios::in);
-	int listSize = 25000;
+	ifstream numberFile("C:\\Ball\\P02\\25k.txt", ios::in);
+	int listSize = 0;
+	int holder;
 	int* list = NULL;
+
+	if (numberFile.is_open()) //if the file is open
+	{
+		while (!numberFile.eof()) {
+			numberFile >> holder;
+			listSize++;
+		}
+
+		list = new int[listSize];
+
+		for (int i = 0; i < listSize; i++) {
+			int x = 0;
+
+			numberFile >> x;
+			list[i] = x;
+		}
+	}
+	sort.bubbleSort(list, listSize);
 
 	if (numberFile.is_open()) //if the file is open
 	{
@@ -115,8 +198,21 @@ void sort::sortFile25k() {
 			list[i] = x;
 		}
 	}
-	sort.bubbleSort(list, listSize);
+
 	sort.selectionSort(list, listSize);
+
+	if (numberFile.is_open()) //if the file is open
+	{
+		list = new int[listSize];
+
+		for (int i = 0; i < listSize; i++) {
+			int x = 0;
+
+			numberFile >> x;
+			list[i] = x;
+		}
+	}
+
 	sort.insertionSort(list, listSize);
 
 	numberFile.close();
@@ -127,9 +223,30 @@ void sort::sortFile100k() {
 	cout << "(100k elements)" << endl;
 
 	sort sort;
-	ifstream numberFile("C:\\Programming\\C++ II\\P02\\100k.txt", ios::in);
-	int listSize = 100000;
+	ifstream numberFile("C:\\Ball\\P02\\100k.txt", ios::in);
+	int listSize = 0;
+	int holder = 0;
 	int* list = NULL;
+
+	if (numberFile.is_open()) //if the file is open
+	{
+
+		while (!numberFile.eof()) {
+			numberFile >> holder;
+			listSize++;
+		}
+
+		list = new int[listSize];
+
+		for (int i = 0; i < listSize; i++) {
+			int x = 0;
+
+			numberFile >> x;
+			list[i] = x;
+		}
+	}
+
+	sort.bubbleSort(list, listSize);
 
 	if (numberFile.is_open()) //if the file is open
 	{
@@ -142,8 +259,21 @@ void sort::sortFile100k() {
 			list[i] = x;
 		}
 	}
-	sort.bubbleSort(list, listSize);
+
 	sort.selectionSort(list, listSize);
+
+	if (numberFile.is_open()) //if the file is open
+	{
+		list = new int[listSize];
+
+		for (int i = 0; i < listSize; i++) {
+			int x = 0;
+
+			numberFile >> x;
+			list[i] = x;
+		}
+	}
+
 	sort.insertionSort(list, listSize);
 
 	numberFile.close();
